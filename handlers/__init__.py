@@ -5,22 +5,22 @@ from physics import physics_calc
 
 @dp.message_handler(commands=['start', 'help'])
 async def start(message):
-    await bot.send_message(message.from_user.id, 'Привет, я бот для помощи с решением физичских задач.'
+    await bot.send_message(message.from_user.id, 'Привет, я ‍бот💻 для помощи с ✅решением физичских задач.'
                                                  ' Выбери способ ввода условия задачи, и я попытаюсь помочь'
-                                                 ' тебе с ее решнием :3', reply_markup=keyboard)
+                                                 ' тебе с ее решнием 😼', reply_markup=keyboard)
 
 
 @dp.message_handler(regexp='Текст')
 async def start(message):
     global text_task_input
-    await bot.send_message(message.from_user.id, 'Введи текст задачи:')
+    await bot.send_message(message.from_user.id, 'Введи текст задачи📝:')
     text_task_input = True
 
 
 @dp.message_handler(regexp='Изображение')
 async def start(message):
     global image_task_input
-    await bot.send_message(message.from_user.id, 'Загрузи изображение задачи:')
+    await bot.send_message(message.from_user.id, 'Загрузи изображение задачи📷:')
     image_task_input = True
 
 
@@ -32,11 +32,11 @@ async def start(message):
         await img.download(destination_file='C:/Users/t106o/PycharmProjects/UchiDomaProject/test_imgs/img.jpg')
         text = await photo_input()
         await bot.send_message(message.from_user.id,
-                               f'Текст вашей задачи:\n{text}',
+                               f'Текст📄 вашей задачи:\n{text}',
                                reply_markup=keyboard)
         formuls = await physics_calc(text)
         await bot.send_message(message.from_user.id,
-                               f'Вот подходящие формулы для решения твоей задачи:\n{", ".join(formuls)}',
+                               f'✅Вот подходящие формулы📃 для решения твоей задачи👇💯:\n{", ".join(formuls)}',
                                reply_markup=keyboard)
 
 
@@ -46,8 +46,8 @@ async def some_send(message):
     if text_task_input:
         formuls = await physics_calc(message.text)
         await bot.send_message(message.from_user.id,
-                               f'Вот подходящие формулы для решения твоей задачи:\n{", ".join(formuls)}',
+                               f'✅Вот подходящие формулы📃 для решения твоей задачи👇💯:\n{", ".join(formuls)}',
                                reply_markup=keyboard)
         text_task_input = False
     else:
-        await bot.send_message(message.from_user.id, 'Я еще не знаю такой команды')
+        await bot.send_message(message.from_user.id, '❌Я еще не знаю такой команды')
