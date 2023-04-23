@@ -7,7 +7,7 @@ from physics import physics_calc
 async def start(message):
     await bot.send_message(message.from_user.id, 'Привет, я ‍бот💻 для помощи с ✅решением физичских задач.'
                                                  ' Выбери способ ввода условия задачи, и я попытаюсь помочь'
-                                                 ' тебе с ее решнием 😼', reply_markup=keyboard)
+                                                 ' тебе ее решить 😼', reply_markup=keyboard)
 
 
 @dp.message_handler(regexp='Текст')
